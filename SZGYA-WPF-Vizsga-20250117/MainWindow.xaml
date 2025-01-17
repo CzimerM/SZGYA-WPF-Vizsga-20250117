@@ -1,0 +1,33 @@
+﻿<Window x:Class="SZGYA_WPF_Vizsga_20250117.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SZGYA_WPF_Vizsga_20250117"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.Column="0">
+            <Label x:Name="lblDbVizsgazo" DockPanel.Dock="Top">[ennyi] vizsgázó adatait beolvastuk</Label>
+            <ListBox x:Name="lstbxVizsgazok" DockPanel.Dock="Bottom" Margin="10,10"></ListBox>
+        </DockPanel>
+        <StackPanel Grid.Column="1" Margin="50,22">
+            <StackPanel Orientation="Horizontal" Margin="20,20">
+                <Button x:Name="btnSikeresVizsga" Click="btnSikeresVizsga_Click">Sikeres vizsgát tett</Button>
+                <Label x:Name="lblSikeresVizsga" Margin="20,0">[ennyi] fő</Label>
+            </StackPanel>
+            <Button x:Name="btnEredmenyIras" Margin="20,20" Click="btnEredmenyIras_Click">Eredmények állományba írása</Button>
+            <Label Margin="20,20,20,0">Keresett tanuló</Label>
+            <TextBox Margin="20,0"></TextBox>
+            <StackPanel Margin="50,5">
+                <Label>Legjobb eredménye: [annyi]%</Label>
+                <Label>Leggyengébb eredménye: [annyi]%</Label>
+                <Label>[ilyen] vizsgát tett</Label>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
