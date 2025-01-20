@@ -30,6 +30,10 @@ namespace SZGYA_WPF_Vizsga_20250117
             lblDbVizsgazo.Content = $"{vizsgazok.Count} vizsgázó adatait beolvastuk";
             lblSikeresVizsga.Content = "";
             lstbxVizsgazok.ItemsSource = vizsgazok.Select(v => v.Nev);
+
+            lblLeggyengebbEredmeny.Content = "";
+            lblLegjobbEredmeny.Content = "";
+            lblVizsgaSikeres.Content = "";
         }
 
         private void btnSikeresVizsga_Click(object sender, RoutedEventArgs e)
@@ -45,6 +49,20 @@ namespace SZGYA_WPF_Vizsga_20250117
                 sw.WriteLine(vizsgazo);
             }
 
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var txb = sender as TextBox;
+            var talalat = vizsgazok.FirstOrDefault(v => v.Nev.ToLower().Contains(txb.Text.ToLower()));
+            if (talalat == null)
+            {
+                MessageBox.Show($"Nincs ilyen tanuló a listában: {txb.Text}");
+                return;
+            }
+            lblLegjobbEredmeny.Content = $"Legjobb eredménye: {talalat.Osztalyzatok.Max(l => l.Value)}%";
+            lblLeggyengebbEredmeny.Content = $"Leggyengébb eredménye:  {talalat.Osztalyzatok.Min(l => l.Value)}%";
+            lblVizsgaSikeres.Content = $"{talalat.Vegeredmeny} vizsgát tett";
         }
     }
 }

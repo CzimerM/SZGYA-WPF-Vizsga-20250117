@@ -22,11 +22,11 @@
             </StackPanel>
             <Button x:Name="btnEredmenyIras" Margin="20,20" Click="btnEredmenyIras_Click">Eredmények állományba írása</Button>
             <Label Margin="20,20,20,0">Keresett tanuló</Label>
-            <TextBox Margin="20,0"></TextBox>
+            <TextBox Margin="20,0" TextChanged="TextBox_TextChanged"></TextBox>
             <StackPanel Margin="50,5">
-                <Label>Legjobb eredménye: [annyi]%</Label>
-                <Label>Leggyengébb eredménye: [annyi]%</Label>
-                <Label>[ilyen] vizsgát tett</Label>
+                <Label x:Name="lblLegjobbEredmeny">Legjobb eredménye: [annyi]%</Label>
+                <Label x:Name="lblLeggyengebbEredmeny">Leggyengébb eredménye: [annyi]%</Label>
+                <Label x:Name="lblVizsgaSikeres">[ilyen] vizsgát tett</Label>
             </StackPanel>
         </StackPanel>
     </Grid>
