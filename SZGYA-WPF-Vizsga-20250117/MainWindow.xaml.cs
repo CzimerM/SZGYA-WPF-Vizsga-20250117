@@ -62,7 +62,7 @@ namespace SZGYA_WPF_Vizsga_20250117
             }
             lblLegjobbEredmeny.Content = $"Legjobb eredménye: {talalat.Osztalyzatok.Max(l => l.Value)}%";
             lblLeggyengebbEredmeny.Content = $"Leggyengébb eredménye:  {talalat.Osztalyzatok.Min(l => l.Value)}%";
-            lblVizsgaSikeres.Content = $"{talalat.Vegeredmeny} vizsgát tett";
+            lblVizsgaSikeres.Content = $"{(talalat.Erdemjegy == "elégtelen" ? "Sikertelen" : "Sikeres")} vizsgát tett";
         }
     }
 }
